@@ -27,37 +27,29 @@ public class FripperController : MonoBehaviour
     void Update()
     {
 
-        //左矢印で左フリッパー動かす
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && tag == "LeftFripperTag")
+        //Aキーで左フリッパー動かす
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) && tag == "LeftFripperTag")
         {
-
             SetAngle(this.flickAngle);
-
         }
 
-        //右矢印で右フリッパー動かす
-        if (Input.GetKeyDown(KeyCode.RightArrow) && tag == "RightFripperTag")
+        //Dキーで右フリッパー動かす
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S) && tag == "RightFripperTag")
         {
-
             SetAngle(this.flickAngle);
-
         }
 
-        //矢印キー離すとフリッパー戻る
-        if(Input.GetKeyUp(KeyCode.LeftArrow) && tag == "LeftFripperTag")
+
+        //キー離すとフリッパー戻る
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) && tag == "LeftFripperTag")
         {
-
             SetAngle(this.defaultAngle);
-
         }
 
-        if (Input.GetKeyUp(KeyCode.RightArrow) && tag == "RightFripperTag")
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.S) && tag == "RightFripperTag")
         {
-
             SetAngle(this.defaultAngle);
-
         }
-
 
     }
 

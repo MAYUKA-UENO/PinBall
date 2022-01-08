@@ -23,9 +23,6 @@ public class BallController : MonoBehaviour
     void Start()
     {
  
-        //BallControllerクラスの変動を宣言してインスタンスを代入
-        BallController PointController = new BallController();
-
         //scene中のゲームオーバーテキスト取得
         this.gameoverText = GameObject.Find("GameOverText");
 
@@ -37,27 +34,68 @@ public class BallController : MonoBehaviour
     // 星や雲に当たった場合
     void OnCollisionEnter(Collision collision)
     {
+
+        Debug.Log("ボールが当たったものはコレ→" + collision.gameObject.name);
+
+
         //ボールが小さい星SmallStarにあたった場合の加算
         if (collision.gameObject.name == "SmallStar")
         {
-            Score += 10;
+            Score += 2;
         }
+
+        //ボールが小さい星SmallStarPrefab1にあたった場合の加算
+        if (collision.gameObject.name == "SmallStarPrefab1")
+        {
+            Score += 2;
+        }
+
+        //ボールが小さい星SmallStarPrefab2にあたった場合の加算
+        if (collision.gameObject.name == "SmallStarPrefab2")
+        {
+            Score += 2;
+        }
+
+        //ボールが小さい星SmallStarPrefab3にあたった場合の加算
+        if (collision.gameObject.name == "SmallStarPrefab3")
+        {
+            Score += 2;
+        }
+
         //ボールが大きい星LargeStarにあたった場合の加算
         if (collision.gameObject.name == "LargeStar")
         { 
-            Score += 30;
+            Score += 5;
+        }
+
+        //ボールが大きい星LargeStarPrefab1にあたった場合の加算
+        if (collision.gameObject.name == "LargeStarPrefab1")
+        {
+            Score += 5;
+        }
+
+        //ボールが大きい星LargeStarPrefab2にあたった場合の加算
+        if (collision.gameObject.name == "LargeStarPrefab2")
+        {
+            Score += 5;
         }
 
         //ボールが小さい雲SmallCloudにあたった場合の加算
         if (collision.gameObject.name == "SmallCloud")
         {
-            Score += 2;
+            Score += 10;
+        }
+
+        //ボールが小さい雲SmallCloudPrefabにあたった場合の加算
+        if (collision.gameObject.name == "SmallCloudPrefab")
+        {
+            Score += 10;
         }
 
         //ボールが大きい雲LargeCloudにあたった場合の加算
         if (collision.gameObject.name == "LargeCloud")
         {
-            Score += 4;
+            Score += 20;
         }
 
         //得点表示
